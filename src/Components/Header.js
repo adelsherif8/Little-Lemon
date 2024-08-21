@@ -4,7 +4,7 @@ import Nav from "./Nav"
 const Header = () => {
   return (
     <header>
-    <img src='logo.svg'/>
+    <img className='logo' src='logo.svg' alt="Logo for the Little Lemon Restaurent"/>
     <Nav/>
     </header>
   )

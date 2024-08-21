@@ -3,14 +3,14 @@ import Nav from './Nav'
 const Footer = () => {
   return (
     <footer>
-        <img src='logo.svg'/>
+        <img className='logo' src='logo.svg' alt="Logo for the Little Lemon Restaurent"/>
         <section aria-label="Doormat Navigation">
-        <h6>Doormat Navigation</h6>
+        <h4>Doormat Navigation</h4>
         <Nav/>
         </section>
 
         <section aria-label="contact-heading">
-        <h6>Contact</h6>
+        <h4>Contact</h4>
         <ul>
             <a href=''><li>Addres</li></a>
             <a href=''><li>phone number</li></a>
@@ -19,7 +19,7 @@ const Footer = () => {
         </section>
 
         <section aria-label="social-media-heading">
-        <h6>Follow Us</h6>
+        <h4>Follow Us</h4>
         <ul>
             <a href=''><li>Instagram</li></a>
             <a href=''><li>Facebook</li></a>
