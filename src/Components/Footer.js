@@ -3,7 +3,7 @@ import Nav from './Nav'
 const Footer = () => {
   return (
     <footer>
-        <img className='logo' src='logo.svg' alt="Logo for the Little Lemon Restaurent"/>
+        <img className='logo' src='logo .png' alt="Logo for the Little Lemon Restaurent"/>
         <section aria-label="Doormat Navigation">
         <h4>Doormat Navigation</h4>
         <Nav/>
