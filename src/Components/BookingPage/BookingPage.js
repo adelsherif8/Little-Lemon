@@ -1,17 +1,19 @@
 import React from 'react';
 import BookingForm from './BookingForm';
+import './Booking.css';
 
-// BookingPage Component
+
 const BookingPage = ({
   date, setDate,
   time, setTime,
   guests, setGuests,
   occasion, setOccasion,
   availableTimes,
-  submitForm // No need for unused availableDate and getAvailableTimes
+  submitForm
 }) => {
   return (
-    <>
+    <section id="BookingPage">
+      <section id="BookingForm">
       <h1>Make a Reservation</h1>
       <BookingForm
         date={date}
@@ -25,7 +27,8 @@ const BookingPage = ({
         availableTimes={availableTimes}
         submitForm={submitForm} // Pass submitForm
       />
-    </>
+      </section>
+    </section>
   );
 };
 

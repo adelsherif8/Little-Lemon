@@ -1,5 +1,4 @@
-// src/Components/BookingForm/BookingForm.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const BookingForm = ({
   date,
@@ -11,66 +10,104 @@ const BookingForm = ({
   occasion,
   setOccasion,
   availableTimes,
-  submitForm, // Destructure the submitForm function passed via props
+  submitForm,
 }) => {
+  const [isFormValid, setIsFormValid] = useState(false);
+
+
+  useEffect(() => {
+    if (date && time && guests >= 1) {
+      setIsFormValid(true);
+    } else {
+      setIsFormValid(false);
+    }
+  }, [date, time, guests]);
+
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission
-
-    const formData = {
-      date,
-      time,
-      guests,
-      occasion,
-    };
-
-    // Call submitForm with the form data
-    submitForm(formData);
+    e.preventDefault();
+    if (isFormValid) {
+      const formData = { date, time, guests, occasion };
+      submitForm(formData);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Date:
+    <form onSubmit={handleSubmit} aria-label="Booking Form">
+      <section id='dateSec' className='formCont'>
+        <label htmlFor="res-date">Date:</label>
         <input
+          id="res-date"
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
+          required
+          aria-required="true" 
+          aria-label="Select a date"
         />
-      </label>
+        </section>
 
-      <label>
-        Time:
-        <select value={time} onChange={(e) => setTime(e.target.value)}>
+        <section id='timeSec' className='formCont'>
+        <label htmlFor="res-time">Time:</label>
+        <select
+          id="res-time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
+          required
+          aria-required="true"
+          aria-label="Select a time"
+        >
+          <option value="" disabled>
+            Select time
+          </option>
           {availableTimes.map((availableTime) => (
             <option key={availableTime} value={availableTime}>
               {availableTime}
             </option>
           ))}
         </select>
-      </label>
+        </section>
 
-      <label>
-        Guests:
+        <section id='guestsSec' className='formCont'>
+        <label htmlFor="guests">Guests:</label>
         <input
+          id="guests"
           type="number"
           value={guests}
           onChange={(e) => setGuests(Number(e.target.value))}
           min="1"
           max="10"
+          required
+          aria-required="true"
+          aria-label="Select number of guests"
         />
-      </label>
+        </section>
 
-      <label>
-        Occasion:
-        <select value={occasion} onChange={(e) => setOccasion(e.target.value)}>
+        <section id='occasionSec' className='formCont'>
+        <label htmlFor="occasion">Occasion:</label>
+        <select
+          id="occasion"
+          value={occasion}
+          onChange={(e) => setOccasion(e.target.value)}
+          aria-label="Select occasion"
+        >
           <option value="Birthday">Birthday</option>
           <option value="Anniversary">Anniversary</option>
         </select>
-      </label>
+        </section>
 
-      <button type="submit">Submit Booking</button>
+        <section id='submitSec' className='formCont'>
+      <button
+        type="submit"
+        data-testid="submit-button"
+        disabled={!isFormValid}
+        aria-label="On Click Submit Booking"
+      >
+        Submit Booking
+      </button>
+      </section>
     </form>
   );
 };
 
 export default BookingForm;
+ 

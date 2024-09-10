@@ -1,0 +1,64 @@
+:root {
+    --primary-color: #495E57;
+    --primary-color-yellow: #F4CE14;
+    --secondary-color-dark: #EE9972;
+    --secondary-color-light: #FBDABB;
+    --accent-color-grey: #EDEFEE;
+    --accent-color-black: #333333;
+  }
+
+#BookingPage {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../../public/restaurantchefB.jpg");
+    background-position: center center;
+    background-size: cover;
+}
+#BookingForm{
+    background-color: var(--primary-color);
+    padding: 30px;
+    border-radius: 30px;
+}
+#BookingForm h1{
+    text-align: center;
+    font-size: 60px;
+    color: white;
+}
+form,.formCont{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.formCont{
+    gap:5px;
+}
+#BookingForm label{
+    color: var(--accent-color-grey);
+    font-size: 25px;
+    font-family: "Karla";
+}
+#BookingForm input,#BookingForm select{
+    padding: 8px;
+    color: black;
+    font-size: large;
+    background-color: #F4CE14;
+}
+#BookingForm button {
+    padding: 10px;
+    color: #EDEFEE;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    font-size: 30px;
+    font-family: "Markazi Text";
+    border-radius: 20px;
+
+}
+#BookingForm button:hover{
+    background-color:#F4CE14 ;
+    transition: background-color 0.5s ease;
+    color: black;
+}
